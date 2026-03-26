@@ -1,0 +1,38 @@
+@use "../base/variables" as v;
+
+/* utilidades generadas con @each */
+@each $space in v.$spacers {
+  .m-#{$space} {
+    margin: #{$space}px;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}px;
+  }
+}
+
+@each $name, $shadow in v.$shadows {
+  .shadow-#{$name} {
+    box-shadow: $shadow;
+  }
+}
+
+$content-max: 1100px;
+
+.content-narrow {
+  max-width: $content-max;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-80 {
+  width: 80%;
+}

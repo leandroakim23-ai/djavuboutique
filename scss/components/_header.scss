@@ -1,0 +1,266 @@
+@use "../base/variables" as v;
+@use "../layout/mixins" as m;
+
+.site-header {
+  position: static;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.brand-bar {
+  background: linear-gradient(135deg, rgb(78, 74, 74), rgb(48, 45, 45));
+  color: white;
+  text-align: center;
+  padding: 26px 20px;
+
+  h1 {
+    color: v.$color-accent;
+    font-variant: small-caps;
+    font-size: 54px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+}
+
+.brand-subtitle {
+  font-size: 16px;
+  color: #f2f2f2;
+  opacity: 0.92;
+}
+
+.main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: v.$color-nav;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  width: 100%;
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    padding: 14px 20px;
+    flex-wrap: wrap;
+
+    li a {
+      color: #111;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: v.$radius;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+      &:hover,
+      &[aria-current="page"] {
+        background-color: rgba(255, 255, 255, 0.42);
+        color: rgb(226, 195, 17);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.35)),
+    url("../img/tienda-de-ropa-portada.jpg") center/cover no-repeat;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.hero-content {
+  color: #fff;
+  max-width: 680px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.16);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.hero h2 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 28px;
+  max-width: 600px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: v.$radius;
+  font-weight: 700;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #222;
+  color: #fff;
+
+  &:hover {
+    background-color: #444;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #222;
+
+  &:hover {
+    background-color: rgb(226, 195, 17);
+    color: #111;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-submit {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.page-intro,
+.info-section,
+.featured-products {
+  padding: 60px 0;
+}
+
+.page-intro h2,
+.info-section h2,
+.featured-products h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: #1f1f1f;
+}
+
+.page-intro p,
+.info-section p,
+.featured-products > .content-narrow > p {
+  text-align: center;
+  font-size: 17px;
+  color: #555;
+  max-width: 760px;
+  margin: 0 auto 24px;
+}
+
+.info-section {
+  background-color: #fff;
+}
+
+.light-section {
+  background-color: #f3f3f3;
+}
+
+.card-block {
+  background-color: #fff;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+
+  h3 {
+    font-size: 28px;
+    margin-bottom: 14px;
+    color: #222;
+  }
+
+  p {
+    text-align: left;
+    margin-bottom: 14px;
+    color: #555;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@include m.respond(tablet) {
+  .hero h2 {
+    font-size: 40px;
+  }
+}
+
+@include m.respond(mobile) {
+  .brand-bar h1 {
+    font-size: 34px;
+  }
+
+  .brand-subtitle {
+    font-size: 14px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 70px 0;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-intro h2,
+  .info-section h2,
+  .featured-products h2 {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-bar {
+    padding: 20px 14px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .card-block {
+    padding: 20px;
+  }
+}

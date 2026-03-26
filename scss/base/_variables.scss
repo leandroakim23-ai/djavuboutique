@@ -1,0 +1,19 @@
+$color-bg: #fafafa;
+$color-text: #333;
+$color-accent: orange;
+$color-header: rgb(78, 74, 74);
+$color-nav: #b4b4b4;
+$radius: 10px;
+$gap: 24px;
+$bp-mobile: 768px;
+$bp-tablet: 992px;
+$card-width: 230px;
+$img-h: 320px;
+
+$spacers: (0, 8, 16, 24, 32);
+
+$shadows: (
+  sm: 0 4px 8px rgba(0, 0, 0, 0.10),
+  md: 0 10px 20px rgba(0, 0, 0, 0.18),
+  lg: 0 18px 35px rgba(0, 0, 0, 0.22)
+);

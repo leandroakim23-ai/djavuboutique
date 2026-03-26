@@ -1,0 +1,22 @@
+@use "../base/variables" as v;
+
+@mixin respond($bp) {
+  @if $bp == mobile {
+    @media (max-width: v.$bp-mobile) {
+      @content;
+    }
+  } @else if $bp == tablet {
+    @media (max-width: v.$bp-tablet) {
+      @content;
+    }
+  }
+}
+
+@mixin hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
